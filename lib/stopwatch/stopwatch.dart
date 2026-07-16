@@ -56,6 +56,30 @@ class _StopWatchExampleState extends State<StopWatchExample> {
       laps.clear();
       milliseconds = 0;
     });
+    print(laps);
+  }
+
+  Widget _buildCounter(BuildContext context) {
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Laps: ${laps.length + 1}',
+            style: Theme.of(
+              context,
+            ).textTheme.headlineSmall!.copyWith(color: Colors.white),
+          ),
+          Text(
+            _milisToSecond(milliseconds),
+            style: Theme.of(
+              context,
+            ).textTheme.headlineMedium!.copyWith(color: Colors.white),
+          ),
+        ],
+      ),
+    );
   }
 
   String _milisToSecond(millis) {
