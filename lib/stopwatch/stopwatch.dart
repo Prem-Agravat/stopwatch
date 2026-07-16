@@ -13,6 +13,7 @@ class _StopWatchExampleState extends State<StopWatchExample> {
   int milliseconds = 0;
   late Timer timer;
   bool isRunning = false;
+  final laps = <int>[];
 
   @override
   void initState() {
@@ -42,6 +43,21 @@ class _StopWatchExampleState extends State<StopWatchExample> {
     });
   }
 
+  void _lap() {
+    setState(() {
+      laps.add(milliseconds);
+      milliseconds = 0;
+    });
+    print(laps);
+  }
+
+  void _clear() {
+    setState(() {
+      laps.clear();
+      milliseconds = 0;
+    });
+  }
+
   String _milisToSecond(millis) {
     final seconds = millis / 1000;
     return '$seconds seconds';
@@ -51,18 +67,6 @@ class _StopWatchExampleState extends State<StopWatchExample> {
     timer.cancel();
     setState(() {
       isRunning = false;
-    });
-  }
-
-  void _pauseTimer() {
-    setState(() {
-      isRunning = false;
-    });
-  }
-
-  void _resumeTimer() {
-    setState(() {
-      isRunning = true;
     });
   }
 
@@ -100,22 +104,22 @@ class _StopWatchExampleState extends State<StopWatchExample> {
                 child: const Text('Stop'),
               ),
               ElevatedButton(
-                onPressed: isRunning ? _pauseTimer : null,
+                onPressed: _lap,
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(
                     Colors.orange,
                   ),
                   foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
                 ),
-                child: const Text('Pause'),
+                child: const Text('Lap'),
               ),
               ElevatedButton(
-                onPressed: isRunning ? null : _resumeTimer,
+                onPressed: _clear,
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all<Color>(Colors.blue),
                   foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
                 ),
-                child: const Text('Resume'),
+                child: const Text('Clear'),
               ),
             ],
           ),
