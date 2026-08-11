@@ -1,69 +1,97 @@
-# ⏱️ Flutter Stopwatch App
+⏱️ Flutter Stopwatch App
 
-A simple and responsive stopwatch application built using **Flutter** and **Dart**. The application provides timer controls with millisecond-level resolution, allowing users to start, stop, record lap times, and clear data.
-
----
-
-## ✨ Features
-
-- **Millisecond Resolution**: Tracks elapsed time with a precision of 100 milliseconds using periodic timers.
-- **Stopwatch Controls**:
-  - **Start**: Launches the timer (resets current timer to zero).
-  - **Stop**: Pauses the current timer run.
-  - **Lap**: Records the split lap time to a history list and resets the active timer.
-  - **Clear**: Resets the active timer and clears all recorded laps.
-- **Console Log Logging**: Prints the recorded lap times list to the console on lap entry or list clearing.
+A simple and responsive stopwatch application built with Flutter and Dart. It provides easy-to-use controls for tracking elapsed time, recording lap times, pausing the stopwatch, and resetting recorded data.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+✨ Features
 
-- **Framework**: [Flutter](https://flutter.dev) (Dart SDK)
-- **Timer Engine**: `Timer.periodic` from `dart:async`
-- **State Management**: Local Widget State (`StatefulWidget` and `setState`)
+- Precise Time Tracking: Displays elapsed time with millisecond formatting and updates every 100 milliseconds.
+- Start: Starts or resumes the stopwatch.
+- Pause: Temporarily stops the stopwatch while preserving the current elapsed time.
+- Lap Recording: Records the current elapsed time and stores it in a lap history.
+- Reset: Resets the stopwatch and clears all recorded laps.
+- Lap History: Displays previously recorded lap times for easy comparison.
+- Responsive UI: Clean and simple interface designed with Flutter widgets.
+- Console Logging: Logs lap data to the console when laps are recorded or cleared.
 
-### Folder Structure
+---
 
-```plaintext
+🛠️ Tech Stack
+
+- Framework: Flutter
+- Language: Dart
+- Timer: "Timer.periodic" from "dart:async"
+- State Management: "StatefulWidget" and "setState()"
+
+---
+
+📁 Project Structure
+
 lib/
 ├── stopwatch/
-│   └── stopwatch.dart   # Main stopwatch screen containing state, tick logic, and buttons
-└── main.dart            # Root widget and application entry point
-```
+│   └── stopwatch.dart    # Stopwatch UI, timer logic, and controls
+└── main.dart             # Application entry point
 
 ---
 
-## 🚀 Getting Started
+🚀 Getting Started
 
-### Prerequisites
+Prerequisites
 
-Ensure you have the following installed:
-- [Flutter SDK](https://docs.flutter.dev/get-started/install) (v3.0.0 or higher)
-- [Dart SDK](https://dart.dev/get-started)
-- [Git](https://git-scm.com/)
+Make sure you have the following installed:
 
-### Installation & Execution
+- "Flutter SDK" (https://flutter.dev)
+- "Dart SDK" (https://dart.dev)
+- "Git" (https://git-scm.com/)
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/Prem-Agravat/stopwatch.git
-   cd stopwatch
-   ```
+Installation
 
-2. **Fetch Dependencies**
-   ```bash
-   flutter pub get
-   ```
+1. Clone the repository
 
-3. **Run the Application**
-   ```bash
-   flutter run
-   ```
+git clone https://github.com/Prem-Agravat/stopwatch.git
+cd stopwatch
+
+2. Install dependencies
+
+flutter pub get
+
+3. Run the application
+
+flutter run
 
 ---
 
-## 🧪 Implementation Details
+⚙️ How It Works
 
-* **Timer Engine**: Located in [stopwatch.dart](file:///C:/Users/agrav/.gemini/antigravity-ide/scratch/stopwatch/lib/stopwatch/stopwatch.dart). Uses a recurring `Timer` that ticks every 100 milliseconds, updating the local UI state dynamically.
-* **Lap Record Utility**: Records split times into an internal array (`laps`) and resets the elapsed time, letting you track multiple splits sequentially.
-* **Entry Point**: [main.dart](file:///C:/Users/agrav/.gemini/antigravity-ide/scratch/stopwatch/lib/main.dart) - Configures the `MaterialApp` and runs the main stopwatch screen interface.
+The stopwatch uses Dart's "Timer.periodic" to update the elapsed time at regular 100-millisecond intervals. The current timer value is stored in the widget's state and the UI is refreshed using "setState()".
+
+Lap Recording
+
+When the user records a lap, the current elapsed time is added to the lap history. The stopwatch can then continue tracking the next interval.
+
+Stopwatch Controls
+
+The application provides controls to:
+
+- Start or resume timing
+- Pause the current timer
+- Record lap times
+- Reset the stopwatch and lap history
+
+---
+
+📱 Future Improvements
+
+- Add dark/light theme support
+- Add lap deletion functionality
+- Improve time accuracy using "Stopwatch"
+- Add animations and enhanced UI
+- Add persistent lap history
+- Add countdown timer functionality
+
+---
+
+📄 License
+
+This project is created for learning and development purposes.
